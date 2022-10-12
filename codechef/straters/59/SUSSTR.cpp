@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 void func(string s,string &fans,int &l,int &r, int turn)
 {
     if(l>r)
