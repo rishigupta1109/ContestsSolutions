@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+
+
+
+using namespace std;
+
+int main() {
+	int t;
+	cin >> t;
+	queue<int> primes;
+	int maxi = 4 * 1e6;
+	bool sieve [maxi + 1] {0};
+	for (int i = 2; i <= maxi; i++) {
+	    if (!sieve[i]) {
+	        primes.push(i);
+	        int j = i + i;
+	        while (j <= maxi) {
+	            sieve[j] = 1;
+	            j += i;
+	        }
+	    }
+	}
+	
+	while (t-- > 0) {
+	    int n, v, d;
+	    cin >> n;
+	    int a[n] {0};
+	    for (int i = 0; i < n; i++) {
+	        cin >> v;
+	        v--;
+	        if (a[v] == 0 && a[i] == 0) {
+	            a[i] = a[v] = primes.front();
+	            primes.pop();
+	        } else if (a[i] == 0) {
+	            a[i] = a[v];
+	        }// else if (a[v] == 0) {
+	            a[v] = a[i];
+	        //}
+	    }
+	    
+	    for (int i = 0; i < n; i++) {
+	        cout << a[i] << ' ';
+	    }
+	    
+	    cout << endl;
+	}
+ 	return 0;
+}
+	
