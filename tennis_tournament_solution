@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	
+	while(t--){
+	    int n;
+	    cin>>n;
+	    if(n%2==0){
+	        cout<<"NO"<<endl;
+	    }
+	    else{
+	        cout<<"YES"<<endl;
+	        int a=(n-1)/2;
+	        char s[n];
+	        for(int i=0;i<n;i++){
+	            int j=i+1;
+	            for(int k=1;k<=a;k++,j++){
+	                s[j%n]='1';
+	            }
+	            for(int k=1;k<=n-a;j++,k++){
+	                s[j%n]='0';
+	            }
+	            for(int i=0;i<n;i++){
+	                cout<<s[i];
+	            }
+	            cout<<endl;
+	        }
+	    }
+	}
+	return 0;
+}
